@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+		<title>快速解读</title>
+
+		<!--css 引入-->
+		<link href="../common/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../common/css/commonPay.css" />
+		<link rel="stylesheet" type="text/css" href="../common/css/common.css">
+		<link rel="stylesheet" type="text/css" href="css/ask.css">
+
+		<!--js 引入-->
+		<script src="../common/js/commonModule.js"></script>
+		<script src="https://cdn.staticfile.org/Plupload/2.1.1/plupload.full.min.js"></script>
+		<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="js/qiniu.js"></script>
+
+		<!--IE9 以下兼容-->
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+	        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+
+	</head>
+
+	<body>
+		<nav>
+			<h3 class="title">快速解读</h3>
+		</nav>
+		<div id="wrap">
+			<div class="wrap-first">
+				<span>问诊人</span>
+				<i class="wenzhen"></i>
+			</div>
+			<div class="wrap-second">
+				<span>电子档案</span>
+				<i class="dangan">
+		          <!-- 电子档案 -->
+		          
+		          <!-- <img src="img/wode_right.png" style="float: right;"> -->
+		        </i>
+			</div>
+			<div class="add-text">
+				<textarea value="text" placeholder="请添加照片并描述您所要咨询的问题，包括身体状况和症状等。专家会及时为您解答。"></textarea>
+			</div>
+
+			<div class="add-pic">
+				<div id="upload">
+					<img src="../common/img/kuaisujiedu@2x.png" alt="上传图片" id="cvs" class="imgFromQiniu" />
+				</div>
+
+				<div class="pic-right">
+					<!-- <h4 class="btn upload">添加照片<br></h4>-->
+					<!--<h4 class="btn upload">添加照片<br><input  class="upload_pic" id="upload" /></h4>-->
+					<!-- <h4>添加照片</h4> -->
+					<p>体检报告，病例，化验单等照片，方便医生确认!</p>
+				</div>
+
+			</div>
+			<div class="imgContainerFromUp">
+				<div id="imgContainerFromUp">
+
+				</div>
+			</div>
+		</div>
+
+		<!-- 底部 -->
+		<footer>
+			<div class="footer-left">
+				<span>咨询：</span>
+				<i class="i-one">￥20</i>
+				<i class="i-two">￥30</i>
+			</div>
+			<div class="footer-right">
+				<span>开始提问</span>
+			</div>
+		</footer>
+	</body>
+
+</html>

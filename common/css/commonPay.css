@@ -1,0 +1,92 @@
+.grayBG{
+    top: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: black;
+    opacity: 0.35;
+    z-index: 99;
+    left: 0;
+}
+.weixin{
+    background-image: url("../img/weixin@2x.png");
+}
+.zhifubao{
+    background-image: url("../img/zhifubao@2x.png");
+}
+.zhanghu{
+    background-image: url("../img/fangshi_yue_icon@2x.png");
+}
+.flx73{
+    border-bottom: 1px solid #d0d0d0;
+    display: flex;
+    flex-flow: row;
+    -webkit-flex-flow: row;
+    align-items: center;
+    -webkit-align-items: center;
+    padding: 0 0.1rem;
+}
+.flx73>div:nth-child(1){
+    flex: 1;
+    -webkit-flex: 1;
+}
+.payImgBase{
+    display: inline-block;
+}
+.payContent{
+    opacity: 1;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    left: 0;
+    z-index: 999;
+    font-size: 0.14rem;
+    color: #323232;
+}
+.payContent .title{
+    text-align: center;
+    border-bottom: 1px solid #d0d0d0;
+    height:0.38rem;
+    line-height: 0.38rem;
+}
+.heighting{
+    height:0.43rem;
+}
+.payContent .item span:nth-child(1){
+    vertical-align: middle;
+    width: 0.22rem;
+    height: 0.22rem;
+    background-size: contain;
+    display: inline-block;
+    margin-right: 0.10rem;
+}
+.payContent .payContainer{
+    padding: 0.22rem 0.1rem;
+}
+.payContent .payButton{
+    width:100%;
+    color:#fff;
+    font-size: 0.15rem;
+    background-color: #ff9001;
+    text-align: center;
+    padding: 0.055rem 0;
+    border-radius: 0.03rem;
+}
+.payContent .check{
+    width: 0.19rem;
+    background-image: url(../img/quan_wei@2x.png);
+    display: inline-block;
+    height: 0.19rem;
+    background-size: contain;
+    vertical-align: sub;
+}
+.payContent .checked{
+    width: 0.19rem;
+    background-image: url(../img/quan_xuan@2x.png);
+    display: inline-block;
+    height: 0.19rem;
+    background-size: contain;
+    vertical-align: sub;
+}
+

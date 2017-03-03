@@ -1,0 +1,300 @@
+*:focus {
+	outline: none;
+}
+
+
+/*title*/
+
+.title {
+	font-size: 0.16rem;
+	width: 100%;
+	height: 0.3rem;
+	text-align: center;
+	padding: 0.05px;
+	background: #fff;
+	line-height: 0.3rem;
+	margin-bottom: 0.1rem;
+}
+
+
+/*内容区*/
+
+#wrap {
+	width: 100%;
+}
+
+#wrap .wrap-first,
+#wrap .wrap-second {
+	background: #fff;
+	display: flex;
+	font-size: 0.14rem;
+	color: #323232;
+	height: 0.44rem;
+	line-height: 0.44rem;
+	border-bottom: 1px solid #CCC;
+}
+
+#wrap .wrap-first span {
+	width: 1.2rem;
+	margin-left: 0.08rem;
+}
+
+#wrap .wrap-first i {
+	flex: 1;
+	width: 0.07rem;
+	height: 0.12rem;
+	background: url(../../common/img/wode_right.png) no-repeat right;
+	margin-top: 0.14rem;
+	margin-right: 0.1rem;
+}
+
+#wrap .wrap-first .patient {
+	width: 1.6rem;
+	text-align: right;
+}
+
+#wrap .wrap-second span {
+	margin-left: 0.08rem;
+	width: 1.2rem;
+}
+
+#wrap .wrap-second i {
+	flex: 1;
+	width: 0.07rem;
+	height: 0.12rem;
+	background: url(../../common/img/wode_right.png) no-repeat right;
+	margin-top: 0.14rem;
+	margin-right: 0.1rem;
+}
+
+#wrap .wrap-second .file {
+	width: 1.6rem;
+	text-align: right;
+}
+
+#wrap .add-text {
+	color: #a1a1a1;
+	font-size: 0.01rem;
+}
+
+#wrap .add-text textarea {
+	border: none;
+	width: 100%;
+	height: 1rem;
+	margin-top: 0.1rem;
+	color: #a1a1a1;
+	margin-bottom: 0.2rem;
+	letter-spacing: 0.01rem;
+	resize: none;
+	overflow-y: hidden;
+	font-size: 0.12rem;
+}
+
+#wrap .add-pic {
+	display: flex;
+	flex-direction: row;
+	height: 0.61rem;
+	background: #fff;
+	padding: 0.1rem;
+}
+
+#wrap .add-pic .pic {
+	margin-left: 0.08rem;
+	width: 0.61rem;
+	height: 0.61rem;
+	background: url(../img/kuaisujiedu@2x.png) no-repeat;
+	background-size: 100%;
+}
+
+#wrap .add-pic .pic-right {
+	flex: 1;
+	height: 0.6rem;
+	margin-left: 0.12rem;
+}
+
+#wrap .add-pic .pic-right h4 {
+	color: #323232;
+	font-size: 0.14rem;
+	height: 0.25rem;
+	line-height: 0.15rem;
+	text-align: left;
+	padding: 0;
+	margin-top: 0.03rem;
+}
+
+#wrap .add-pic .pic-right p {
+	color: #999999;
+	font-size: 0.1rem;
+	height: 0.3rem;
+	line-height: 0.15rem;
+}
+
+.upload {
+	position: relative;
+}
+
+.upload_pic {
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0;
+}
+
+body {
+	height: 100%;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	position: absolute;
+}
+
+.imgFromQiniu {
+	width: 0.6rem;
+	height: 0.6rem;
+}
+
+.imgContainerFromUp {
+	padding: 0.3rem 0.1rem 0.2rem 0.1rem;
+	background: #fff;
+}
+
+#imgContainerFromUp img {
+	display: inline-block;
+	margin: 0;
+	width: 49%;
+	border: 0;
+	padding: 0;
+	border: none;
+	margin-bottom: 0.1rem;
+}
+
+
+/*底部*/
+
+footer {
+	display: flex;
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 0.49rem;
+	background-color: #fff;
+}
+
+footer .footer-left {
+	width: 3.2rem;
+	line-height: 0.49rem;
+	border-top: 1px solid #ccc;
+}
+
+footer .footer-left span {
+	font-size: 0.145rem;
+	margin-left: 0.08rem;
+}
+
+footer .footer-left i {
+	font-style: normal;
+}
+
+footer .footer-left .i-one {
+	color: #ff9001;
+	font-size: 0.135rem;
+}
+
+footer .footer-left .i-two {
+	color: #999;
+	font-size: 0.12rem;
+	text-decoration: line-through;
+}
+
+footer .footer-right {
+	font-family: "微软雅黑";
+	width: 1.7rem;
+	display: flex;
+	flex: right;
+	justify-content: center;
+	line-height: 0.49rem;
+	color: #fff;
+	font-size: 0.15rem;
+	background-color: #ff9001;
+}
+
+
+/*登陆注册修改密码css*/
+
+.landContainer,
+.quickSignContainer,
+.changePasswordContainer {
+	padding: 0 0.1rem;
+}
+
+.btn-confirm {
+	background-color: #5da1ec;
+	border-radius: 4px;
+	color: white;
+	text-align: center;
+	/* line-height: 34px; */
+	height: 34px;
+}
+
+.landFatherContainer {
+	background-color: white;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 99;
+	position: absolute;
+	width: 100%;
+}
+
+.titleLand {
+	border-bottom: 1px solid #ccc;
+	height: 38px;
+	position: relative;
+	text-align: center;
+	line-height: 38px;
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+
+.landBack {
+	left: 0.1rem;
+	display: inline-block;
+	/* background-image: url(../img/fanhui@2x.png); */
+	position: absolute;
+	width: 50px;
+	height: 38px;
+	background-size: cover;
+	text-align: left;
+	top: 0px;
+}
+
+.landBack span {
+	background-image: url(../img/fanhui@2x.png);
+	width: 9px;
+	height: 15px;
+	background-size: cover;
+	display: inline-block;
+}
+
+.twoChoic {
+	display: flex;
+	-webkit-display: flex;
+	padding: 0 0.1rem;
+	margin-top: 0.2rem;
+}
+
+.twoChoic> div:nth-child(1) {
+	flex: 1;
+	-webkit-flex: 1;
+}
+
+.twoChoic> div:nth-child(2) {
+	flex: 1;
+	-webkit-flex: 1;
+	text-align: right;
+}

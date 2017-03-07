@@ -1,0 +1,205 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+    <title>电子档案</title>
+
+    <!-- Bootstrap -->
+    <link href="../common/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../common/css/common.css">
+    <link rel="stylesheet" type="text/css" href="css/file.css">
+    <script src="../common/js/commonModule.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+<body > 
+  <!-- 中间内容区 -->
+    <div id="wrap">
+        <div class="MedicalListItemSum">
+
+        </div>
+        <!--<div class="HealthListItemSum">
+
+        </div>-->
+      <!--<div class="wrap-content">
+        <div class="cho-one">
+          
+        </div>
+        <div class="content-ins">
+          <img src="img/wode_icon3@2x.png">
+          <span>入职体检报告</span>
+          <p>美年大健康某某医院</p>
+          <i>2016-4-28</i>
+        </div>
+        <div class="content-right">
+          <a href="#">
+            
+          </a>
+        </div>
+      </div>
+
+      <div class="wrap-content">
+        <div class="cho-two">
+         
+        </div>
+        <div class="content-ins">
+          <img src="img/wode_icon3@2x.png">
+          <span>入职体检报告</span>
+          <p>美年大健康某某医院</p>
+          <i>2016-4-28</i>
+        </div>
+        <div class="content-right">
+          <a href="#">
+            
+          </a>
+        </div>
+      </div>
+
+      <div class="wrap-content">
+        <div class="cho-three">
+          
+        </div>
+        <div class="content-ins">
+          <img src="img/wode_icon4@2x.png">
+          <span>健康促进计划书</span>
+          <p></p>
+          <i>2016-4-28</i>
+        </div>
+        <div class="content-right">
+          <a href="#">
+            
+          </a>
+        </div>
+      </div>-->
+    </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+  <script>
+  	$(".cho-one").on("click",function(){
+      $(".cho-one").css({"background":"url(img/zhifu_xuan@2x.png)","border":"none","background-size":"100%"});
+      $(".cho-two").css({"background":"none","border":"1px solid #ccc"});
+      $(".cho-three").css({"background":"none","border":"1px solid #ccc"});
+    })
+    $(".cho-two").on("click",function(){
+      $(".cho-two").css({"background":"url(img/zhifu_xuan@2x.png)","border":"none","background-size":"100%"});
+      $(".cho-one").css({"background":"none","border":"1px solid #ccc"});
+      $(".cho-three").css({"background":"none","border":"1px solid #ccc"});
+    })
+    $(".cho-three").on("click",function(){
+      $(".cho-three").css({"background":"url(img/zhifu_xuan@2x.png)","border":"none","background-size":"100%"});
+      $(".cho-two").css({"background":"none","border":"1px solid #ccc"});
+      $(".cho-one").css({"background":"none","border":"1px solid #ccc"});
+    })
+      //function
+    var MedicalListItemSum = "";
+    // var HealthListItemSum = "";
+    function setMedicalListItem(data){
+    	console.log(data);
+        for(var i = 0;i<data.length;i++){ 
+            var str = '<div class="wrap-content">'
+                    +'<div class="cho-two">'
+                    +'</div><div class="MedicalListItemCC" style="width: 100%;position: relative;" id="'+data[i].id+'" name='+data[i].medical_set_name+'>'
+                    +'<div class="content-ins">'
+                    +'<img src="img/wode_icon3@2x.png">'
+                    +'<span>'+data[i].medical_set_name+'</span>'
+                    +'<p>'+data[i].mcenter_name+'</p>'
+                    +'<i>'+data[i].mreport_date+'</i>'
+                    +'</div>'
+                    +'</div>'
+                    +'</div>';
+            MedicalListItemSum = MedicalListItemSum + str;
+        }
+        $(".MedicalListItemSum").append(MedicalListItemSum);
+        $(".MedicalListItemCC").on("click",function(){
+            var id = $(this).attr("id");
+            localStorage.setItem("HealthListId",id);
+            var name = $(this).attr("name");
+            localStorage.setItem("HealthListName",name);
+            window.location.href = "ask(1).html";
+        });
+    }
+//  function setHealthListItem(data){
+//      for(var i = 0;i<data.length;i++){
+//          var str = '<div class="wrap-content">'
+//                  +'<div class="cho-two">'
+//                  +'</div><div class="HealthListCC" style="width: 100%;position: relative;" tid="'+data[i].tid+'">'
+//                  +'<div class="content-ins">'
+//                  +'<img src="img/wode_icon4@2x.png">'
+//                  +'<span>健康促进计划书</span>'
+//                  +'<p></p>'
+//                  +'<i>'+data[i].medicalTime+'</i><a href="#" class="rightArrow"></a>'
+//                  +'</div>'
+//                  +'</div>'
+//                  +'</div>';
+//          HealthListItemSum = HealthListItemSum + str;
+//      }
+//      $(".HealthListItemSum").append(HealthListItemSum);
+//      $(".HealthListCC").on("click",function(){
+//          var id = $(this).attr("tid");
+//          localStorage.setItem("HealthListId",id);
+//          var name = $(this).attr("name");
+//          localStorage.setItem("HealthListName",name);
+//          window.location.href = "ask(1).html";
+//      });
+//  }
+//  function findHealthList(token){
+//      var questionReportListUrl = urlBaseQ + '/health/v2_0/healthReport/findHealthReportList';
+//      var obj = {
+//          token:token,
+//          nextPage:0,
+//          pageSize:10
+//      };
+//      $.ajax({
+//          type: "post",
+//          url : questionReportListUrl,
+//          dataType:'json',
+//          data: obj ,
+//          async : false,
+//          success: function(data){
+//              if(data.code==1&&data.object.length>0){
+//                  setHealthListItem(data.object);
+//              }
+//
+//          },
+//          error:function(){
+//              alert("8898922");
+//          }
+//      });
+//  }
+      function findMedicalList(){
+          var questionReportListUrl = urlBaseW + 'md=apisearch&object=health_report&consumerid=623';
+          var obj = {
+              pagesize:10,
+              pagenum :1
+          };
+          $.ajax({
+              type: "post",
+              url : questionReportListUrl,
+              dataType:'json',
+              data: obj ,
+              async : false,
+              success: function(data){
+              	console.log(data);
+               if(data.status == "ok"){
+                   setMedicalListItem(data.data.rows);
+               }
+
+              },
+              error:function(){
+                  alert("error");
+              }
+          });
+      }
+    //main
+    findMedicalList();
+//  findHealthList();
+
+  </script>
+</body>
+</html>

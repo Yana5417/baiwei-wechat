@@ -1,0 +1,82 @@
+body{
+	background: #fff;
+}
+/*内容区*/
+#wrap{
+	width: 100%;
+}
+#wrap .wrap-content{
+	height: 0.9rem;
+	width: 100%;
+	display: flex;
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+}
+#wrap .wrap-content .cho-one,#wrap .wrap-content .cho-two,#wrap .wrap-content .cho-three{
+	width: 0.17rem;
+	height: 0.17rem;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	margin-top: 0.36rem;
+	margin-right: 0.1rem; 
+	margin-left: 0.1rem;
+	background: url(../img/zhifu_xuan@2x.png) no-repeat;
+	background: none;
+}
+
+#wrap .wrap-content .content-ins{
+	margin-top: 0.06rem;
+}
+#wrap .wrap-content .content-ins img{
+	width: 0.19rem;
+	height: 0.19rem;
+}
+#wrap .wrap-content .content-ins span{
+	color: #434343;
+	font-size: 0.15rem;
+	margin-left: 0.05rem;
+	position:relative;
+	top:0.02rem;
+}
+#wrap .wrap-content .content-ins p{
+	color: #999;
+	font-size: 0.12rem;
+	margin-top: 0.08rem;
+	margin-bottom: 0.08rem;
+	word-spacing: 0.06rem; 
+}
+#wrap .wrap-content .content-ins i{
+	font-style: normal;
+	color: #999;
+	position: absolute;
+	top:0.63rem;
+}
+#wrap .wrap-content .content-right a{
+	display: block;
+	width: 0.09rem;
+	height: 0.18rem;
+	background: url(../img/wode_right@2x.png) no-repeat right;
+	margin-top: 0.36rem;
+	position: absolute;
+	right: 0.1rem;
+}
+
+#wrap .wrap-content .MedicalListItemCC{
+	padding-left: 0.08rem;
+}
+
+.rightArrow{
+    display: block;
+    width: 0.09rem;
+    height: 0.18rem;
+    background: url(img/wode_right@2x.png) no-repeat right;
+    margin-top: 0.36rem;
+    position: absolute;
+    right: 0.1rem;
+    top:2px;
+}
+
+
+
+
+

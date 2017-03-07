@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注册</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+
+		<!--css-->
+		<link href="../common/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../common/css/commonPay.css" />
+		<link rel="stylesheet" type="text/css" href="../common/css/common.css">
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+
+		<script type="text/javascript" src="../common/js/jquery-2.1.3.min.js"></script>
+		<!--IE9 以下兼容-->
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+	        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+
+	<body>
+		<nav class="nav">
+			<i></i>
+			<h4 style="left: 1.45rem;">快速注册</h4>
+		</nav>
+		<div class="quickSignContainer">
+			<div class="form-group">
+				<input id="phone" class="form-control" placeholder="请输入手机号" name="phone" type="number">
+				<span id="phoneMsg">手机号码输入错误，请重新输入！</span>
+			</div>
+			<div class="form-group">
+				<div class="input-group">
+					<input id="code" type="number" class="form-control" placeholder="请输入短信验证码" aria-describedby="basic-addon2">
+					<span class="input-group-addon" id="getCode">获取验证码</span>
+				</div>
+			</div>
+			<div class="form-group">
+				<input id="password" class="form-control" placeholder="请输入密码" name="password" type="password">
+				<span id="passwordMsg">密码为6-16位的字母、数字、下划线</span>
+			</div>
+			<div class="checkbox terms text-left" id="checkbox">
+				<label>
+                    <input id="agree" name="remember" type="checkbox" value="agree terms" checked="checked">同意 <a  href="terms.html">《百纬用户协议》</a>
+                </label>
+			</div>
+			<button class="btn btn-info  btn-block" id="register">确定</button>
+		</div>
+
+		<!--若手机号已被注册-->
+		<div class="modal fade" id="hasRegister" tabindex="-1">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-body">
+						该手机号已经被注册，请直接登录
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-primary" data-dismiss="modal">确定</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../common/js/commonModule.js"></script>
+		<script type="text/javascript" src="js/register.js"></script>
+	</body>
+
+</html>

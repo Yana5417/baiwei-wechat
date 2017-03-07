@@ -5,7 +5,9 @@
 //params
 var domain,
 	uptoken,
-	imgKey;
+	imgKey,
+	imgNumber,
+	imgKeyList;
 
 //获取七牛的uptoken
 function getUptoken() {
@@ -17,7 +19,6 @@ function getUptoken() {
 		data: {},
 		dataType: 'json',
 		success: function(response) {
-			console.log(response);
 			if(response.message == "成功") {
 				domain = response.object.domain;
 				uptoken = response.object.uptoken;
@@ -31,11 +32,11 @@ function getUptoken() {
 getUptoken();
 
 //获取七牛的key
-function getKey(uptoken) {
+function getKey(uptoken,num) {
 	var getKeyUrl = urlBaseQ + "/health/v2_0/qiniu/getQiniuKeys";
 	var req = {
 		token: uptoken,
-		number: 1,
+		number: 3,
 		type: 1
 	};
 	$.ajax({
@@ -46,8 +47,8 @@ function getKey(uptoken) {
 		dataType: 'json',
 		success: function(response) {
 			console.log(response);
-			if(response.message == "成功！") {
-				imgKey = response.object[0];
+			if(response.message == "成功!") {
+				imgKeyList = response.object;
 			}
 		},
 		error: function(response) {
@@ -56,9 +57,11 @@ function getKey(uptoken) {
 	});
 }
 
+
+
 //创建上传的图片显示dom
 function createNewImg(ele, src) {
-	var imgStr = '<img src="' + src + '" alt="上传图片" />'
+	var imgStr = '<img src="' + src + '" alt="上传图片" class="addImg" />'
 	$("#" + ele).append(imgStr);
 }
 
@@ -81,19 +84,17 @@ var uploader = Qiniu.uploader({
 	init: {
 		'FilesAdded': function(up, files) {
 			plupload.each(files, function(file) {
+				imgNumber = files.length;
 				// 文件添加进队列后，处理相关的事情
 			});
 		},
 		'BeforeUpload': function(up, file) {
 			// 每个文件上传前，处理相关的事情
-			console.log("6666");
 		},
 		'UploadProgress': function(up, file) {
 			// 每个文件上传时，处理相关的事情
-			console.log("777777");
 		},
 		'FileUploaded': function(up, file, info) {
-			console.log("9999");
 			// 每个文件上传成功后，处理相关的事情
 			// 其中info是文件上传成功后，服务端返回的json，形式如：
 			// {
@@ -105,7 +106,9 @@ var uploader = Qiniu.uploader({
 			console.log("info:", info);
 			var res = JSON.parse(info);
 			var sourceLink = domain + "/" + res.key; //获取上传成功后的文件的Url
+			
 			sourceLink = "http://" + sourceLink;
+			
 			//处理多次上传的时候，自动创建img标签
 			createNewImg('imgContainerFromUp', sourceLink);
 		},
@@ -119,10 +122,16 @@ var uploader = Qiniu.uploader({
 		'Key': function(up, file) {
 			// 若想在前端对每个文件的key进行个性化处理，可以配置该函数
 			// 该配置必须要在unique_names: false，save_key: false时才生效
-			getKey(uptoken);
-			var key = imgKey;
+			getKey(uptoken,imgNumber);
+			
+			var key = "";
+			for(var i=0;i<imgKeyList.length;i++){
+				key = imgKeyList[i];
+				console.log(key)
+				return key;
+			}
 			// do something with key here
-			return key
+			
 		}
 	},
 });

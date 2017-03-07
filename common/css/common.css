@@ -40,6 +40,10 @@ ul, ol {
     list-style-type: none
 }
 
+a {
+	color: #333;
+}
+
 a img {
     border: 0
 }
@@ -85,4 +89,7 @@ input:focus {
 .flexThree361 div:nth-child(3){
     flex: 1;
     -webkit-flex: 1;
+}
+.clearfix{
+	clear: both;
 }

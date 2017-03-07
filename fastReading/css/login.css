@@ -1,0 +1,156 @@
+/*登陆注册修改密码css*/
+
+.btn-confirm {
+	background-color: #5da1ec;
+	border-radius: 4px;
+	color: white;
+	text-align: center;
+	height: 0.3rem;
+    margin-top: 0.7rem;
+}
+
+.landFatherContainer {
+	background-color: white;
+	top: 0;
+	left: 0;
+	height: 100%;
+	z-index: 99;
+	position: absolute;
+	width: 100%;
+}
+
+.titleLand {
+	border-bottom: 1px solid #ccc;
+	height: 38px;
+	position: relative;
+	text-align: center;
+	line-height: 38px;
+	margin-bottom: 20px;
+	font-size: 16px;
+	background: #fff;
+}
+
+.landBack {
+	left: 0.1rem;
+	display: inline-block;
+	position: absolute;
+	width: 50px;
+	height: 38px;
+	background-size: cover;
+	text-align: left;
+	top: 0px;
+}
+
+.landBack span {
+	background-image: url(../../common/img/fanhui@2x.png);
+	width: 0.09rem;
+	height: 0.15rem;
+	background-size: cover;
+	display: inline-block;
+}
+
+.twoChoic {
+    display: flex;
+    -webkit-display: flex;
+    padding: 0 0.1rem;
+    width: 1rem;
+    float: right;
+}
+
+.twoChoic> div:nth-child(1) {
+	flex: 1;
+	-webkit-flex: 1;
+	text-align: right;
+}
+
+.twoChoic> div:nth-child(2) {
+	flex: 1;
+	-webkit-flex: 1;
+	text-align: right;
+}
+
+.form-group {
+	position: relative;
+}
+.pass-eyes{
+	position: absolute;
+    display: inline-block;
+    background: url(../img/yan@2x.png) no-repeat;
+    width: 0.32rem;
+    height: 0.2rem;
+    right: 0.2rem;
+    top: 0.08rem;
+}
+.wx-login {
+	position: absolute;
+    left: 1.3rem;
+    top: 4.5rem;
+}
+#phoneMsg,
+#passwordMsg {
+	color: red;
+}
+nav.nav {
+	padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    width: 100%;
+    height: 0.3rem;
+    margin-bottom: 0.2rem;
+    background: #fff;
+    text-align: center;
+    position: relative;
+}
+nav.nav i {
+	width: 0.25rem;
+	height: 0.25rem;
+	display: inline-block;
+	background: url(../../common/img/fanhui@2x.png) no-repeat center center;
+	background-size: 0.14rem 0.18rem;
+    position: absolute;
+    left: 0.15rem;
+    top: 0.02rem;
+}
+nav.nav h4,
+nav.nav h5 {
+	display: inline-block;
+	position: absolute;
+	top: 0.08rem;
+}
+nav.nav h4 {
+	left: 1.65rem;
+}
+nav.nav h5 {
+	right: 0.2rem;
+}
+.phoneNum {
+    width: 100%;
+    height: 0.3rem;
+    text-align: center;
+    padding: 0.1rem;
+}
+.phoneNum a {
+	color: #333;
+}
+.otherLogin{
+    margin-top: 1rem;
+    text-align: center;
+}
+.otherLogin .line {
+    width: 0.8rem;
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    margin: 0.08rem;
+    vertical-align: middle;
+}
+.code {
+    position: absolute;
+    top: 0.03rem;
+    right: 0.1rem;
+    border: 1px solid #ccc;
+    outline: none;
+}
+#register,
+#login {
+	margin-top: 0.8rem;
+}

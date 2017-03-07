@@ -7,38 +7,41 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 		<title>快速解读</title>
 
-		<!--css 引入-->
+		<!-- Bootstrap -->
 		<link href="../common/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="../common/css/commonPay.css" />
 		<link rel="stylesheet" type="text/css" href="../common/css/common.css">
 		<link rel="stylesheet" type="text/css" href="css/ask.css">
 
-		<!--js 引入-->
 		<script src="https://cdn.staticfile.org/Plupload/2.1.1/plupload.full.min.js"></script>
-		<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-		<script src="js/qiniu.js"></script>
+		<script src="../common/js/qiniu.js"></script>
+		<script src="../common/js/commonModule.js"></script>
 
-		<!--IE9 以下兼容-->
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
-	        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
 	    <![endif]-->
-
 	</head>
 
 	<body>
-		<nav>
+		<!--<nav>
 			<h3 class="title">快速解读</h3>
-		</nav>
+		</nav>-->
 		<div id="wrap">
 			<div class="wrap-first">
 				<span>问诊人</span>
+				<div class="patient">
+					<wlx id="peopleName" style="margin-right: 10px;"></wlx>
+					<wlx id="PeopleSex" style="margin-right: 10px;"></wlx>
+					<wlx id="peopleAge"></wlx>
+				</div>
 				<i class="wenzhen"></i>
 			</div>
 			<div class="wrap-second">
 				<span>电子档案</span>
+				<div class="file" id="HealthListName"></div>
 				<i class="dangan">
 		          <!-- 电子档案 -->
 		          
@@ -51,7 +54,7 @@
 
 			<div class="add-pic">
 				<div id="upload">
-					<img src="../common/img/kuaisujiedu@2x.png" alt="上传图片" id="cvs" class="imgFromQiniu" />
+					<img src="img/kuaisujiedu@2x.png" alt="上传图片" id="cvs" class="imgFromQiniu" />
 				</div>
 
 				<div class="pic-right">
@@ -68,7 +71,6 @@
 				</div>
 			</div>
 		</div>
-
 		<!-- 底部 -->
 		<footer>
 			<div class="footer-left">
@@ -80,12 +82,37 @@
 				<span>开始提问</span>
 			</div>
 		</footer>
-		
-		
-		<!--jquery 引入-->
+		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!--<script src="js/jquery-2.1.3.min.js"></script>-->
 		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
-		<script src="../common/js/commonModule.js"></script>
-		<script type="text/javascript" src="js/postImg_qiniu.js" ></script>
+		<script src="js/commonPay.js" charset="utf-8" type="text/javascript"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script src="js/ask.js"></script>
+		<script src="js/postImg_qiniu.js"></script>
+		<script>
+
+			var userInfo = localStorage.getItem("userInfo");
+			console.log(userInfo);
+			$(".footer-right").click(function() {
+				getPayWay();
+			});
+
+			$(".wrap-first").on("click", function() {
+				if(userInfo == null){
+					window.location.href = 'login.html';
+				}else{
+					window.location.href = 'patient.html';
+				}
+			});
+
+			$(".wrap-second").on("click", function() {
+				if(userInfo == null){
+					window.location.href = 'login.html';
+				}else{
+					window.location.href = 'file.html';
+				}
+			});
+		</script>
 	</body>
 
 </html>

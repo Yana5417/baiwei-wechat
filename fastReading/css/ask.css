@@ -43,7 +43,7 @@
 	flex: 1;
 	width: 0.07rem;
 	height: 0.12rem;
-	background: url(../../common/img/wode_right.png) no-repeat right;
+	background: url(../img/wode_right.png) no-repeat right;
 	margin-top: 0.14rem;
 	margin-right: 0.1rem;
 }
@@ -62,7 +62,7 @@
 	flex: 1;
 	width: 0.07rem;
 	height: 0.12rem;
-	background: url(../../common/img/wode_right.png) no-repeat right;
+	background: url(../img/wode_right.png) no-repeat right;
 	margin-top: 0.14rem;
 	margin-right: 0.1rem;
 }
@@ -164,14 +164,13 @@ body {
 
 #imgContainerFromUp img {
 	display: inline-block;
-	margin: 0;
-	width: 49%;
+	margin: 2%;
+	width: 45%;
 	border: 0;
 	padding: 0;
 	border: none;
 	margin-bottom: 0.1rem;
 }
-
 
 /*底部*/
 
@@ -225,76 +224,65 @@ footer .footer-right {
 
 
 /*登陆注册修改密码css*/
-
-.landContainer,
-.quickSignContainer,
-.changePasswordContainer {
-	padding: 0 0.1rem;
+.landContainer,.quickSignContainer ,.changePasswordContainer{
+    padding: 0 0.1rem;
 }
-
-.btn-confirm {
-	background-color: #5da1ec;
-	border-radius: 4px;
-	color: white;
-	text-align: center;
-	/* line-height: 34px; */
-	height: 34px;
+.btn-confirm{
+    background-color: #5da1ec;
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+/* line-height: 34px; */
+    height: 34px;
 }
-
-.landFatherContainer {
-	background-color: white;
-	top: 0;
-	left: 0;
-	height: 100%;
-	z-index: 99;
-	position: absolute;
-	width: 100%;
+.landFatherContainer{
+    background-color: white;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 99;
+    position: absolute;
+    width: 100%;
 }
-
-.titleLand {
-	border-bottom: 1px solid #ccc;
-	height: 38px;
-	position: relative;
-	text-align: center;
-	line-height: 38px;
-	margin-bottom: 20px;
-	font-size: 16px;
+.titleLand{
+    border-bottom: 1px solid #ccc;
+    height: 38px;
+    position: relative;
+    text-align: center;
+    line-height: 38px;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
-
-.landBack {
-	left: 0.1rem;
-	display: inline-block;
-	/* background-image: url(../img/fanhui@2x.png); */
-	position: absolute;
-	width: 50px;
-	height: 38px;
-	background-size: cover;
-	text-align: left;
-	top: 0px;
+.landBack{
+    left: 0.1rem;
+    display: inline-block;
+    /* background-image: url(../img/fanhui@2x.png); */
+    position: absolute;
+    width: 50px;
+    height: 38px;
+    background-size: cover;
+    text-align: left;
+    top: 0px;
 }
-
-.landBack span {
-	background-image: url(../img/fanhui@2x.png);
-	width: 9px;
-	height: 15px;
-	background-size: cover;
-	display: inline-block;
+.landBack span{
+    background-image: url(../img/fanhui@2x.png);
+    width: 9px;
+    height: 15px;
+    background-size: cover;
+    display: inline-block;
 }
-
-.twoChoic {
-	display: flex;
-	-webkit-display: flex;
-	padding: 0 0.1rem;
-	margin-top: 0.2rem;
+.twoChoic{
+    display: flex;
+    -webkit-display: flex;
+    padding: 0 0.1rem;
+    margin-top: 0.2rem;
 }
-
-.twoChoic> div:nth-child(1) {
-	flex: 1;
-	-webkit-flex: 1;
+.twoChoic > div:nth-child(1){
+    flex: 1;
+    -webkit-flex: 1;
 }
-
-.twoChoic> div:nth-child(2) {
-	flex: 1;
-	-webkit-flex: 1;
-	text-align: right;
+.twoChoic > div:nth-child(2){
+    flex: 1;
+    -webkit-flex: 1;
+    text-align: right;
 }

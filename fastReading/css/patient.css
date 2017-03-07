@@ -1,0 +1,106 @@
+body{
+	overflow-y: hidden;
+	background-color: #fff;
+}
+/*内容区*/
+#wrap{
+	width: 100%;
+	background-color: #fff;
+}
+#wrap span{
+	margin-left: 0.08rem;
+	font-size: 0.14rem;
+}
+#wrap .name {
+	height: 0.48rem;
+	line-height: 0.48rem;
+	border-bottom: 1px solid #ccc;
+}
+#wrap .name input{
+	border: none;
+	width: 1rem;
+	height: 0.3rem;
+	font-size: 0.125rem;
+	margin-left: 1.7rem;
+	text-indent: 0.25rem;
+	line-height: 0.3rem;
+}
+#wrap .sex{
+	height: 0.48rem;
+	line-height: 0.48rem;
+	position: relative;
+	border-bottom: 1px solid #ccc;
+}
+#wrap .sex .sex-cho{
+	position: absolute;
+	right: 0.1rem;
+	top: 0;
+	width: 0.8rem;
+	display: flex;
+}
+#wrap .sex .sex-cho i{
+	font-style: normal;
+	color: #a4a4a4;
+	margin-left: 0.08rem;
+	font-size: 0.15rem;
+}
+#wrap .sex .sex-cho div{
+	margin-top: 0.16rem;
+	width: 0.17rem;
+	height: 0.17rem;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+}
+#wrap .sex .sex-cho .i-man{
+	background: url(../img/zhifu_xuan@2x.png) no-repeat left top;
+
+}
+#wrap .sex .sex-cho .i-women{
+	background: url(../img/zhifu_xuan@2x.png) no-repeat left top;
+	background: none; 
+}
+
+#wrap .age{
+	height: 0.48rem;
+	line-height: 0.48rem;
+	border-bottom: 1px solid #ccc;
+}
+#wrap .age .input1{
+	border: none;
+	width: 1rem;
+	height: 0.2rem;
+	margin-left: 1.4rem;
+	color: #fff;
+}
+#wrap .age .age-btn{
+	width: 0.09rem;
+	height: 0.18rem;
+	background: url(../img/wode_right@2x.png) no-repeat right;
+	margin-top: 0.16rem;
+	position: absolute;
+	right: 0.1rem;
+}
+#wrap .iframe{
+	margin-top: -0.37rem;
+}
+footer{
+	position: fixed;
+	bottom: 0.3rem;
+	left: 0.06rem;
+	height: 0.25rem;
+	width: 96%;
+	font-size: 0.15rem;
+	text-align: center;
+	background: #ccc;
+	color: #fff; 
+	font-family: "PingFang-SC-Regular";	
+	background: url("../img/anniu@2x.png"); 
+	background-size: 100%;
+	border-radius: 2px;
+}
+
+
+
+
+
+

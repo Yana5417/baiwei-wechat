@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>登录</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+		
+		<!--css-->
+		<link href="../common/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../common/css/common.css">
+		<link rel="stylesheet" type="text/css" href="css/login.css">
+		
+		<script type="text/javascript" src="../common/js/jquery-2.1.3.min.js" ></script>
+		<!--IE9 以下兼容-->
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+	        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+	</head>
+
+	<body>
+		<nav class="nav">
+			<i></i>
+			<h4>登录</h4>
+			<h5><a href="register.html">快速注册</a></h5>
+		</nav>
+		<div class="landContainer">
+			<div class="form-group">
+				<input id="phone" class="form-control" placeholder="请输入手机号" name="mobile" type="mobile">
+				<span id="phoneMsg" style="display: none;"></span>
+			</div>
+			<div class="form-group">
+				<input id="password" class="form-control" placeholder="请输入密码" name="mobile" type="password">
+				<i class="pass-eyes"></i>
+				<span id="passwordMsg" style="display: none;"></span>
+			</div>
+			<div class="twoChoic">
+				<div id="forgetPassword"><a href="forgetPassword.html">忘记密码</a></div>
+			</div>
+			<div class="clearfix"></div>
+			<button class="btn btn-info  btn-block" id="login">登录</button>
+			
+			<p class="phoneNum"><a href="quickLogin.html">手机号快速登录</a></p>
+			
+			<div class="otherLogin">
+				<span class="line line1"></span>
+				<span class="text">使用其他账号登录</span>
+				<span class="line line2"></span>
+			</div>
+			<div class="wx-login">
+				<img src="img/wx-85x85.png" />
+			</div>
+		</div>
+		<script type="text/javascript" src="../common/js/commonModule.js" ></script>
+		<script src="js/login.js"></script>
+	</body>
+
+</html>

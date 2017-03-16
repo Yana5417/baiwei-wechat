@@ -95,15 +95,9 @@ $(function(){
 			dataType:'json',
 			success:function(response){
 				console.log(response);
-<<<<<<< .mine
-||||||| .r381
-				alert("11");
-=======
-			//	alert("11");
->>>>>>> .r401
 				localStorage.setItem("userInfo",JSON.stringify(response.map.object));
 				localStorage.setItem("_token",response.map.token);
-				window.location.href = "home.html";
+				window.location.href = "home.html?noRefresh=yes";
 			},
 			error:function(response){
 				alert("登录失败");

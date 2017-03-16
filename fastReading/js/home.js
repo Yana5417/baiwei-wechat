@@ -33,6 +33,12 @@ function getErecord() {
 }
 getErecord();
 
+//症状描述
+function getDescribe(){
+	var describe = localStorage.getItem("describe");
+	$("#mark").html(describe);
+}
+getDescribe();
 /**
  *微信用户登录获取用户信息 
  * 最后拿到的是tid,token,rongToken
@@ -89,6 +95,6 @@ if(GetRequest("noRefresh") == "yes") {
 }else{
 	getUserInfo(GetRequest("code"), GetRequest("state"));
 }
-alert(GetRequest("code"));
+//alert(GetRequest("code"));
 
-alert("code");
+//alert("code");

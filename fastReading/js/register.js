@@ -82,7 +82,7 @@ $(function(){
 			dataType:'json',
 			success:function(response){
 				console.log(response);
-				window.location.href = "home.html";
+				window.location.href = "home.html?noRefresh=yes";
 			},
 			error:function(response){
 				

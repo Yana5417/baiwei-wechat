@@ -42,12 +42,10 @@
 				var consumerId = GetRequest("consumerId");
 				var name = GetRequest("name");
 				var docId = GetRequest("docId");
-				var docName = GetRequest("docName");
-//				var inquiryId = GetRequest("inquiryId");
+				var docName ;
 				
-//				var urlBase = "http://139.196.105.113";
 				var urlBase = "http://139.196.200.113";
-				//通过医生的id和name调后台接口得到医生进入融云的token
+				//通过id和name调后台接口得到医生进入融云的token
 				$http({
 					method: 'POST',
 					url: urlBase + "/health/health/v2_0/consumer/getRongToken",
@@ -62,7 +60,21 @@
 				}).error(function(response) {
 
 				});
+				//通过id拿到医生name详情
+				//通过医生的id和name调后台接口得到医生进入融云的token
+				$http({
+					method: 'POST',
+					url: urlBase + "/health/health/v2_0/doctor/getDoctorDetail",
+					params: {
+						"doctorId": docId
+					},
+					async: false
+				}).success(function(response) {
+					docName = response.map.doctor.name;
+				}).error(function(response) {
 
+				});
+				
 				var _token = localStorage.getItem('_token');
 				console.log(_token);
 
@@ -103,20 +115,6 @@
 						});
 
 						console.log($('#inputMsg')[0].innerHTML);
-
-						$scope.msgPush = function() {
-							//当医生发送消息时，调后台接口，后台推送消息给患者
-							/*$http({
-								method: 'POST',
-								url: urlBase + "/health/health/ms/inquiry/setStatusAndPushMessage",
-								params: {
-									"token": 1,
-									"inquiryId": inquiryId,
-									"doctorId": docId
-								},
-								async: false
-							}).success(function(response) {}).error(function(response) {});*/
-						};
 					},
 					onError: function() {
 						//初始化错误

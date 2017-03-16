@@ -14,6 +14,37 @@ function addPatient() {
 	} else {
 		sex = 2;
 	}
+	localStorage.setItem("describe",$("#mark").val());
+	/**
+	 *解决安卓手机不能成功拿到token 开始
+	 */
+	/*alert(JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token"));
+	if(JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token") == null){
+		window.location.href = "login.html";
+	}else{
+		//根据token查询orderId,orderRootId
+		$.ajax({
+			type: "post",
+			url: urlBaseQ + "health/v2_0/Inquiry/findOrderStatus",
+			data: {
+				token: JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token")
+			},
+			dataType: 'json',
+			async: false,
+			success: function(response) {
+				console.log("订单id，orderRootid：",response);
+				localStorage.setItem("orderInfo", JSON.stringify(response.object));
+			},
+			error: function() {
+				layer.msg('请求失败');
+			}
+		});
+	}*/
+	/**
+	 *解决安卓手机不能成功拿到token 结束
+	 */
+	
+
 	//根据token查询orderId,orderRootId
 	$.ajax({
 		type: "post",
@@ -31,6 +62,7 @@ function addPatient() {
 			layer.msg('请求失败');
 		}
 	});
+//	alert(JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token"));
 
 	var orderInfo = JSON.parse(localStorage.getItem("orderInfo"));
 	console.log(orderInfo);
@@ -106,7 +138,6 @@ function getPayWay() {
 			} else {
 				str = '';
 			}
-
 			$('.payContainer').before(str);
 			$('.we-code').hide();
 			$('.we-wx').hide();
@@ -116,7 +147,6 @@ function getPayWay() {
 			} else {
 				str = '';
 			}
-
 			$('.payContainer').before(str);
 			$('.we-yu').hide();
 			$('.we-wx').hide();
@@ -125,7 +155,7 @@ function getPayWay() {
 	$(".payButton").on("click", function() {
 		if(payId == "zhanghu") {
 			console.log($("#yuPay").val().length);
-			if($("#yuPay").val().length == 6) {
+			if($("#yuPay").val().length > 0) {
 				balancePay(localStorage.getItem("balance"));
 			} else {
 				layer.msg("密码格式输入错误");
@@ -167,7 +197,6 @@ function getPay(param, val) {
 		data: obj,
 		async: false,
 		success: function(data) {
-			alert("开始支付~");
 			//余额支付成功回调
 			console.log("调支付接口：",data);
 			if(data.message == "成功!") {
@@ -181,12 +210,53 @@ function getPay(param, val) {
 }
 //余额支付
 function balancePay() {
-	getPay('balance', 20);
+	//检验支付密码是否正确
+	$.ajax({
+		type:"post",
+		url:urlBaseQ + "health/v2_0/trade/checkPayPassword",
+		async:false,
+		data:{
+			token: JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token"),
+			password:$("#yuPay").val()
+		},
+		dataType:"json",
+		success:function(response){
+			console.log(response);
+			if(response.message == "成功!"){
+				getPay('balance', 20);
+				WeixinJSBridge.call('closeWindow');
+			}else{
+				layer.msg(response.message);
+			}
+		}
+	});
 }
 
 //口令/优惠码支付
 function codePay() {
-	getPay('discountCode', $("#codePay").val());
+	//检验口令优惠码是否正确
+	$.ajax({
+		type:"post",
+		url:urlBaseQ + "health/v2_0/orders/getCouponCode",
+		async:false,
+		data:{
+			token: JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token"),
+			couponCode:$("#codePay").val()
+		},
+		dataType:"json",
+		success:function(response){
+			if(response.message == "成功!"){
+				getPay('discountCode', $("#codePay").val());
+				WeixinJSBridge.call('closeWindow');
+			}else{
+				layer.msg(response.message);
+			}
+		},
+		error:function(){
+			layer.msg("请求失败");
+		}
+	});
+	
 }
 
 /**

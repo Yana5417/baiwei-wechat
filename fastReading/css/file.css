@@ -12,15 +12,15 @@ body{
 	background-color: #fff;
 	border-bottom: 1px solid #ccc;
 }
-#wrap .wrap-content .cho-one,#wrap .wrap-content .cho-two,#wrap .wrap-content .cho-three{
+#wrap .wrap-content .choose{
 	width: 0.17rem;
-	height: 0.17rem;
+	height: 0.15rem;
 	border-radius: 50%;
 	border: 1px solid #ccc;
 	margin-top: 0.36rem;
 	margin-right: 0.1rem; 
 	margin-left: 0.1rem;
-	background: url(../img/zhifu_xuan@2x.png) no-repeat;
+	background: url(img/zhifu_xuan@2x.png) no-repeat;
 	background: none;
 }
 

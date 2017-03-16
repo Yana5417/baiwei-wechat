@@ -11,8 +11,8 @@
 .weixin{
     background-image: url("../img/weixin@2x.png");
 }
-.zhifubao{
-    background-image: url("../img/zhifubao@2x.png");
+.kouling{
+    background-image: url("../img/payment_kouling@2x.png");
 }
 .zhanghu{
     background-image: url("../img/fangshi_yue_icon@2x.png");
@@ -89,4 +89,19 @@
     background-size: contain;
     vertical-align: sub;
 }
-
+.yu-pass{
+    border-bottom: 1px solid #d0d0d0;
+    display: flex;
+    flex-flow: row;
+    -webkit-flex-flow: row;
+    align-items: center;
+    -webkit-align-items: center;
+    padding: 0 0.1rem;
+}
+.yu-pass input {
+	height: 0.3rem;
+    border: 1px solid #ccc;
+    width: 80%;
+    text-align: center;
+    margin: 0.1rem auto;
+}

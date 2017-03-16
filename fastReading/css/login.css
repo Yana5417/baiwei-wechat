@@ -8,7 +8,9 @@
 	height: 0.3rem;
     margin-top: 0.7rem;
 }
-
+.confirms {
+	margin-top: 0.7rem;
+}
 .landFatherContainer {
 	background-color: white;
 	top: 0;
@@ -118,7 +120,7 @@ nav.nav h5 {
 	top: 0.08rem;
 }
 nav.nav h4 {
-	left: 1.65rem;
+	left: 1.45rem;
 }
 nav.nav h5 {
 	right: 0.2rem;

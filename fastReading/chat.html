@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html ng-app="msgR">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="vendor/angular-1.4.8.js"></script>
+		<script type="text/javascript" src="vendor/jquery-2.2.2.js"></script>
+		<script src="http://cdn.ronghub.com/RongIMLib-2.2.4.min.js"></script>
+		<link rel="stylesheet" href="css/RongIMWidget.min.css" />
+		<script src="http://cdn.ronghub.com/RongUploadLib-2.2.4.min.js"></script>
+		<script type="text/javascript" src="vendor/jquery.nicescroll-3.6.8.js"></script>
+		<script type="text/javascript" src="vendor/jqueryrebox/jquery-rebox-0.1.0.js"></script>
+		<script type="text/javascript" src="vendor/plupload.full.min-2.1.1.js"></script>
+		<link rel="stylesheet" href="vendor/jqueryrebox/jquery-rebox-0.1.0.css" />
+		<script src="http://cdn.ronghub.com/RongEmoji-2.2.4.min.js"></script>
+		<script src="http://cdn.ronghub.com/RongIMVoice-2.2.4.min.js"></script>
+		<script type="text/javascript" src="vendor/qiniu-1.0.17.js"></script>
+		<script src="../common/js/commonModule.js"></script>
+		<style>
+			#rong-conversation {
+				width: 100% !important;
+				top: 0 !important;
+			}
+			
+			.rongcloud-kefuChat .rongcloud-rong-header .rongcloud-kefuName {
+				padding-left: 49%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div ng-controller="main">
+			<rong-widget></rong-widget>
+		</div>
+		<script type="text/javascript" src="js/RongIMWidget.js"></script>
+		<script>
+			var msgR = angular.module('msgR', ["RongWebIMWidget"]);
+			msgR.controller("main", ["$scope", "$http", "WebIMWidget", function($scope, $http, WebIMWidget) {
+				console.log(GetRequest("id"));
+				var consumerId = GetRequest("consumerId");
+				var name = GetRequest("name");
+				var docId = GetRequest("docId");
+				var docName = GetRequest("docName");
+//				var inquiryId = GetRequest("inquiryId");
+				
+//				var urlBase = "http://139.196.105.113";
+				var urlBase = "http://139.196.200.113";
+				//通过医生的id和name调后台接口得到医生进入融云的token
+				$http({
+					method: 'POST',
+					url: urlBase + "/health/health/v2_0/consumer/getRongToken",
+					params: {
+						"consumerId": consumerId,
+						"name": name
+					},
+					async: false
+				}).success(function(response) {
+					$scope._token = response.object;
+					localStorage.setItem("_token", $scope._token);
+				}).error(function(response) {
+
+				});
+
+				var _token = localStorage.getItem('_token');
+				console.log(_token);
+
+				//初始化
+				WebIMWidget.init({
+					appkey: "c9kqb3rdkc95j",
+					token: 'pFHJFfU0xx+ruEMVaUs/ilQJc+HrWaFAxiJ6OF9zHtPfGyGIYMH5ui8n0nbWX+ZV01YqEgZgK3E/aSy46jO82g==',
+					style: {
+						width: 500,
+						height: 680,
+						bottom: 0,
+						left: 0
+					},
+					displayConversationList: false,
+					conversationListPosition: WebIMWidget.EnumConversationListPosition.right,
+					displayMinButton: false,
+					onSuccess: function() {
+						//初始化完成
+						console.log('connect success');
+						/**
+						 *@param conversationType 会话类型 {EnumConversationType} [PRIVATE|GROUP……] 如：EnumConversationType.PRIVATE
+						 *@param targetId 会话目标id {string}
+						 *@param title 会话显示标题 {string}
+						 */
+						WebIMWidget.setConversation(WebIMWidget.EnumConversationType.PRIVATE, docId + "-d", docName);
+						//获取历史消息记录
+						RongIMClient.getInstance().getHistoryMessages(RongIMLib.ConversationType.PRIVATE, docId + "-d", null, 3, {
+							onSuccess: function(list, hasMsg) {
+								// hasMsg为boolean值，如果为true则表示还有剩余历史消息可拉取，为false的话表示没有剩余历史消息可供拉取。
+								// list 为拉取到的历史消息列表
+								console.log(list);
+								console.log(hasMsg);
+							},
+							onError: function(error) {
+								// APP未开启消息漫游或处理异常
+								console.log('APP未开启消息漫游或处理异常');
+							}
+						});
+
+						console.log($('#inputMsg')[0].innerHTML);
+
+						$scope.msgPush = function() {
+							//当医生发送消息时，调后台接口，后台推送消息给患者
+							/*$http({
+								method: 'POST',
+								url: urlBase + "/health/health/ms/inquiry/setStatusAndPushMessage",
+								params: {
+									"token": 1,
+									"inquiryId": inquiryId,
+									"doctorId": docId
+								},
+								async: false
+							}).success(function(response) {}).error(function(response) {});*/
+						};
+					},
+					onError: function() {
+						//初始化错误
+						console.log('init fail');
+					}
+				});
+
+				$scope.show = function() {
+					WebIMWidget.show();
+				};
+
+				$scope.hidden = function() {
+					WebIMWidget.hidden();
+				};
+
+				WebIMWidget.show();
+			}]);
+		</script>
+	</body>
+
+</html>

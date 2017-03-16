@@ -11,7 +11,7 @@ var domain,
 
 //获取七牛的uptoken
 function getUptoken() {
-	var url = urlBaseQ + "/health/v2_0/qiniu/getQiniuToken";
+	var url = "http://139.196.200.113/health/health/v2_0/qiniu/getQiniuToken";
 	$.ajax({
 		type: "post",
 		url: url,
@@ -32,7 +32,7 @@ function getUptoken() {
 getUptoken();
 
 //获取七牛的key
-function getKey(uptoken,num) {
+/*function getKey(uptoken,num) {
 	var getKeyUrl = urlBaseQ + "/health/v2_0/qiniu/getQiniuKeys";
 	var req = {
 		token: uptoken,
@@ -55,7 +55,7 @@ function getKey(uptoken,num) {
 			alert('error');
 		}
 	});
-}
+}*/
 
 
 
@@ -76,26 +76,25 @@ var uploader = Qiniu.uploader({
 	save_key: false, 						//默认false，若在服务器生成uptoken的上传策略中指定了save_key,则开启，SDK在前端将不对key进行任何处理
 	domain: domain, 						//bucket域名，下载资源时用到，必需
 	container: 'upload', 					//上传区域DOM ID，默认是browser_button
-	max_file_size: '100mb', 				//最大文件体积限制
+	max_file_size: '10mb', 				    //最大文件体积限制
 	max_retries: 3, 						//上传失败最大重试次数
 	dragdrop: false, 						//开启可拖拽上传
 	chunk_size: '4mb', 						//分块上传时，每块的体积
-	auto_start: true, 						//选择文件后自动上传，若关闭需要自己绑定事件触发上传
+	auto_start: true, 						//选择文件后自动上传，若关闭需要自己绑定事件触发上传ge files"pg,jpeg,gif,png"}
 	init: {
-		'FilesAdded': function(up, files) {
+		'FilesAdded': function(up, files) {// 文件添加进队列后，处理相关的事情
 			plupload.each(files, function(file) {
-				imgNumber = files.length;
-				// 文件添加进队列后，处理相关的事情
+				
 			});
 		},
-		'BeforeUpload': function(up, file) {
-			// 每个文件上传前，处理相关的事情
+		'BeforeUpload': function(up, file) {// 每个文件上传前，处理相关的事情
+			
 		},
-		'UploadProgress': function(up, file) {
-			// 每个文件上传时，处理相关的事情
+		'UploadProgress': function(up, file) {// 每个文件上传时，处理相关的事情
+			
 		},
-		'FileUploaded': function(up, file, info) {
-			// 每个文件上传成功后，处理相关的事情
+		'FileUploaded': function(up, file, info) {// 每个文件上传成功后，处理相关的事情
+			
 			// 其中info是文件上传成功后，服务端返回的json，形式如：
 			// {
 			//    "hash": "Fh8xVqod2MQ1mocfI4S4KpRL6D98",
@@ -103,6 +102,7 @@ var uploader = Qiniu.uploader({
 			//  }
 			// 查看简单反馈
 			// var domain = up.getOption('domain');
+//			alert("info:", info);
 			console.log("info:", info);
 			var res = JSON.parse(info);
 			var sourceLink = domain + "/" + res.key; //获取上传成功后的文件的Url
@@ -112,25 +112,11 @@ var uploader = Qiniu.uploader({
 			//处理多次上传的时候，自动创建img标签
 			createNewImg('imgContainerFromUp', sourceLink);
 		},
-		'Error': function(up, err, errTip) {
-			//上传出错时，处理相关的事情
+		'Error': function(up, err, errTip) {//上传出错时，处理相关的事情
+			
 			alert("该图片已经存在！");
 		},
-		'UploadComplete': function() {
-			//队列文件处理完毕后，处理相关的事情
-		},
-		'Key': function(up, file) {
-			// 若想在前端对每个文件的key进行个性化处理，可以配置该函数
-			// 该配置必须要在unique_names: false，save_key: false时才生效
-			getKey(uptoken,imgNumber);
-			
-			var key = "";
-			for(var i=0;i<imgKeyList.length;i++){
-				key = imgKeyList[i];
-				console.log(key)
-				return key;
-			}
-			// do something with key here
+		'UploadComplete': function() {//队列文件处理完毕后，处理相关的事情
 			
 		}
 	},

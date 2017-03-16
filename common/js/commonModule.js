@@ -44,10 +44,10 @@ function checkMobileValidation(mobile) {
 
 //全局变量
 
-var urlBaseQ = 'http://139.196.105.113:80/health/',
-    urlBaseW = 'http://139.196.105.113:8848/zobj/?';
-//var urlBaseQ = 'http://139.196.200.113:80/health/',
-//  urlBaseW = 'http://139.196.200.113:8848/zobj/?';
+//var urlBaseQ = 'http://139.196.105.113:80/health/',
+//  urlBaseW = 'http://139.196.105.113:8848/zobj/?';
+var urlBaseQ = 'http://139.196.200.113/health/',
+    urlBaseW = 'http://139.196.200.113/zobj/?';
 var token = GetRequest('token');
 //var urlBaseQ = 'http://api.baiwei120.com/health';
 //token = '474a6fa9ea049293218f262ac450c5ba7d53b4ade73829ae45ec98d2e1d3f6e8e613b7c04c8cab5b5e72cf77b8d7d4ce';

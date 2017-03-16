@@ -15,18 +15,6 @@ $(function() {
 			$("#phoneMsg").hide();
 		}
 	});
-	//密码验证
-	$("#password").on('blur', function() {
-		var reg = /^[a-zA-Z0-9]\w{6,12}$/,
-			val = $("#password").val();
-		console.log(val)
-		if(reg.test(val) == false) {
-			$("#passwordMsg").show();
-			$("#passwordMsg").html("密码为6-12位字母和数字、下划线");
-		} else {
-			$("#passwordMsg").hide();
-		}
-	});
 	//密码是否可见
 	$(".pass-eyes").on('click', function() {
 		if($("#password").attr('type') == 'password') {
@@ -42,9 +30,10 @@ $(function() {
 	 */
 
 	//登录实现
-	$("#nextstep").on('click', function() {
+	$("#login").on('click', function() {
 		var phone = $("#phone").val(),
 			password = $("#password").val();
+			
 
 		console.log(phone);
 		console.log(password);
@@ -55,12 +44,17 @@ $(function() {
 			async: false,
 			data: {
 				'mobile': phone,
-				'password': password
+				'password': password,
+				'tid':JSON.parse(localStorage.getItem("weLoginInfo")).tid
 			},
 			success: function(response) {
 				console.log(response);
-				if(response.message == "成功！") {
-					window.location.href = "home.html";
+				if(response.message == "成功!") {
+					localStorage.setItem("userInfo",JSON.stringify(response.map.object));
+					localStorage.setItem("token",response.map.token);
+					window.location.href = "home.html?noRefresh=yes";
+				}else{
+					layer.msg(response.message);
 				}
 			},
 			error: function(response) {
@@ -68,9 +62,9 @@ $(function() {
 			}
 		});
 	});
-
+	//https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf49c6b60fade7ed2&redirect_uri=http://www.baiwei120.com/baiwei-wechat/fastReading/home.html&response_type=code&scope=snsapi_base&state=baiwei#wechat_redirect
 	//微信登录
-	$('.wx-login').on('click', function() {
-		
-	});
+	/*$('.wx-login').on('click', function() {
+		window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf49c6b60fade7ed2&redirect_uri=http://www.baiwei120.com/baiwei-wechat/fastReading/bindPhone.html&response_type=code&scope=snsapi_base&state=baiwei#wechat_redirect";
+	});*/
 });

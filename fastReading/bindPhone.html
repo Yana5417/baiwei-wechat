@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="UTF-8">
-		<title>登录</title>
+		<title>绑定手机号</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
 		
@@ -23,43 +23,24 @@
 	</head>
 
 	<body>
-		<!--<nav class="nav">
-			<i></i>
-			<h4>登录</h4>
-			<h5><a href="register.html">快速注册</a></h5>
-		</nav>-->
 		<div class="landContainer">
 			<div class="form-group">
-				<input id="phone" class="form-control" placeholder="请输入手机号" name="phone" type="number">
-				<span id="phoneMsg" style="display: none;"></span>
+				<input id="phone" class="form-control" placeholder="请输入手机号" name="mobile" type="mobile">
+				<span id="phoneMsg" style="display: none;">手机号码格式错误，请重新输入！</span>
 			</div>
 			<div class="form-group">
-				<input id="password" class="form-control" placeholder="请输入密码" name="mobile" type="password">
-				<i class="pass-eyes"></i>
-				<span id="passwordMsg" style="display: none;"></span>
-			</div>
-			<div class="twoChoic">
-				<div id="forgetPassword"><a href="forgetPassword.html" target="_parent">忘记密码</a></div>
-			</div>
-			<div class="twoChoic" style="float: left;width: 0.8rem;">
-				<div id="quickLogin"><a href="register.html" target="_parent">快速注册</a></div>
-			</div>
+                <div class="input-group">
+                    <input id="code" type="text" class="form-control" placeholder="请输入短信验证码">
+                    <span class="input-group-addon" id="getCode">获取验证码</span>
+                </div>
+            </div>
 			<div class="clearfix"></div>
-			<button class="btn btn-info  btn-block" id="login">登录</button>
-			
-			<p class="phoneNum"><a href="quickLogin.html" target="_parent">手机号快速登录</a></p>
-			
-			<!--<div class="otherLogin">
-				<span class="line line1"></span>
-				<span class="text">使用其他账号登录</span>
-				<span class="line line2"></span>
+			<div class="confirms">
+				<button class="btn btn-block btn-primary" id="log">确定</button>
 			</div>
-			<div class="wx-login">
-				<img src="img/wx-85x85.png" />
-			</div>-->
 		</div>
 		<script type="text/javascript" src="../common/js/commonModule.js" ></script>
-		<script src="js/login.js"></script>
+		<script type="text/javascript" src="js/bindPhone.js" ></script>
 		<script type="text/javascript" src="../common/js/layer.js" ></script>
 	</body>
 

@@ -9,13 +9,14 @@
 
 		<!-- Bootstrap -->
 		<link href="../common/css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="../common/css/commonPay.css" />
 		<link rel="stylesheet" type="text/css" href="../common/css/common.css">
+		<link rel="stylesheet" type="text/css" href="../common/css/commonPay.css" />
 		<link rel="stylesheet" type="text/css" href="css/ask.css">
-
+		
+		
 		<script src="https://cdn.staticfile.org/Plupload/2.1.1/plupload.full.min.js"></script>
 		<script src="../common/js/qiniu.js"></script>
-		<script src="../common/js/commonModule.js"></script>
+		
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,18 +50,16 @@
 		        </i>
 			</div>
 			<div class="add-text">
-				<textarea value="text" placeholder="请添加照片并描述您所要咨询的问题，包括身体状况和症状等。专家会及时为您解答。"></textarea>
+				<textarea id="mark" value="text" placeholder="请添加照片并描述您所要咨询的问题，包括身体状况和症状等。专家会及时为您解答。"></textarea>
 			</div>
 
 			<div class="add-pic">
-				<div id="upload">
+				<div class="uploadImg" id="upload">
 					<img src="img/kuaisujiedu@2x.png" alt="上传图片" id="cvs" class="imgFromQiniu" />
 				</div>
 
 				<div class="pic-right">
-					<!-- <h4 class="btn upload">添加照片<br></h4>-->
-					<!--<h4 class="btn upload">添加照片<br><input  class="upload_pic" id="upload" /></h4>-->
-					<!-- <h4>添加照片</h4> -->
+					<!--<h4 class="btn upload">添加照片<br><input type="file" class="upload_pic" id="selectFile" /></h4>-->
 					<p>体检报告，病例，化验单等照片，方便医生确认!</p>
 				</div>
 
@@ -83,28 +82,22 @@
 			</div>
 		</footer>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<!--<script src="js/jquery-2.1.3.min.js"></script>-->
 		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+		<script type="text/javascript" src="../common/js/layer.js" ></script>
+		<script type="text/JavaScript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+		<script src="../common/js/commonModule.js"></script>
+		<script src="js/home.js"></script>
 		<script src="js/commonPay.js" charset="utf-8" type="text/javascript"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/ask.js"></script>
 		<script src="js/postImg_qiniu.js"></script>
 		<script>
-
-			var userInfo = localStorage.getItem("userInfo");
-			console.log(userInfo);
 			$(".footer-right").click(function() {
 				getPayWay();
 			});
 
 			$(".wrap-first").on("click", function() {
-				if(userInfo == null){
-					window.location.href = 'login.html';
-				}else{
-					window.location.href = 'patient.html';
-				}
+				window.location.href = 'patient.html';
 			});
-
+			var userInfo = localStorage.getItem("userInfo");
 			$(".wrap-second").on("click", function() {
 				if(userInfo == null){
 					window.location.href = 'login.html';

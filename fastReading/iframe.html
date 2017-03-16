@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8" />
+<title>mdatetimer demo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="stylesheet" href="css/zepto.mdatetimer.css">
+<script src="js/zepto.js"></script>
+<script src="js/zepto.mdatetimer.js"></script>
+<style>
+
+body,ul,h1,h2,h3{
+	margin: 0;
+	padding: 0;
+	font-family:"microsoft yahei";
+}
+ul{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+input{
+	width: 70%;
+    height: 35px;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    margin-top: 0px;
+    margin-right: 20px;
+    border: none;
+    text-indent: 140px;
+}
+</style>
+</head>
+<body>
+<input type="text" id="picktime" readonly>
+<script>
+$(function(){
+	$('#picktime').mdatetimer({
+		mode : 1, //时间选择器模式：1：年月日，2：年月日时分（24小时），3：年月日时分（12小时），4：年月日时分秒。默认：1
+		format : 2, //时间格式化方式：1：2015年06月10日 17时30分46秒，2：2015-05-10  17:30:46。默认：2
+		years : [1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016,2017], //年份数组
+		nowbtn : false, //是否显示现在按钮
+		onOk : function(){
+			var year = $(".mt_year").find('.selected').data('year');
+            var month = $(".mt_month").find('.selected').data('month');
+            localStorage.setItem("quickPeopleYear",year);
+            localStorage.setItem("quickPeopleMonth",month);
+		},  //点击确定时添加额外的执行函数 默认mt_month
+		onCancel : function(){
+			//alert('cancel');
+		}, //点击取消时添加额外的执行函数 默认null
+	});	
+});
+
+</script>
+</body>
+</html>

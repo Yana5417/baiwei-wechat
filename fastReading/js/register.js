@@ -5,7 +5,7 @@ $(function(){
 	
 	//正则表达式验证
 	var regPhone = /^1[34578]\d{9}$/,
-		regPassword = /^[a-zA-Z0-9]\w{5,15}$/;
+		regPassword = /^[a-zA-Z0-9]\w{5,19}$/;
 	var phoneVal,//手机号
 		passwordVal;//密码
 	
@@ -33,9 +33,9 @@ $(function(){
 				success:function(response){
 					
 					if(response.message == "该手机号已注册"){
-						alert("该手机号已注册，请直接登录！");
+						layer.msg("该手机号已注册，请直接登录！");
 					}else if(response.message == "距离上次获取验证码时间未过1分钟，请1分钟后再试"){
-						alert("距离上次获取验证码时间未过1分钟，请1分钟后再试");
+						layer.msg("距离上次获取验证码时间未过1分钟，请1分钟后再试");
 					}else{
 						$("#getCode").html("短信已发送");
 						var _time = 60;
@@ -82,8 +82,11 @@ $(function(){
 			dataType:'json',
 			success:function(response){
 				console.log(response);
+				window.location.href = "home.html";
 			},
-			error:function(response){}
+			error:function(response){
+				
+			}
 		});
 	}
 	
@@ -117,7 +120,7 @@ $(function(){
 				if(response.message == "成功!"){
 					register();
 				}else{
-					alert("验证码错误，请重新输入");
+					layer.msg(response.message);
 				}
 			},
 			error:function(response){

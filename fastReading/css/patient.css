@@ -1,11 +1,12 @@
 body{
 	overflow-y: hidden;
-	background-color: #fff;
+	background-color: #f4f4f4;
 }
 /*内容区*/
 #wrap{
 	width: 100%;
 	background-color: #fff;
+	margin-top: 0.1rem;
 }
 #wrap span{
 	margin-left: 0.08rem;
@@ -17,6 +18,7 @@ body{
 	border-bottom: 1px solid #ccc;
 }
 #wrap .name input{
+	color:#A4A4A4;
 	border: none;
 	width: 1rem;
 	height: 0.3rem;
@@ -35,13 +37,13 @@ body{
 	position: absolute;
 	right: 0.1rem;
 	top: 0;
-	width: 0.8rem;
+	width: 1rem;
 	display: flex;
 }
 #wrap .sex .sex-cho i{
 	font-style: normal;
 	color: #a4a4a4;
-	margin-left: 0.08rem;
+	margin:0 0.08rem;
 	font-size: 0.15rem;
 }
 #wrap .sex .sex-cho div{
@@ -65,35 +67,28 @@ body{
 	line-height: 0.48rem;
 	border-bottom: 1px solid #ccc;
 }
-#wrap .age .input1{
-	border: none;
-	width: 1rem;
-	height: 0.2rem;
-	margin-left: 1.4rem;
-	color: #fff;
-}
 #wrap .age .age-btn{
-	width: 0.09rem;
-	height: 0.18rem;
-	background: url(../img/wode_right@2x.png) no-repeat right;
-	margin-top: 0.16rem;
-	position: absolute;
-	right: 0.1rem;
-}
-#wrap .iframe{
-	margin-top: -0.37rem;
+    width: 1.9rem;
+    height: 0.4rem;
+    background: url(../img/wode_right.png) no-repeat right;
+    position: absolute;
+    right: 0.1rem;
+    border: none;
+    color: #a4a4a4;
+    text-align: right;
+    padding-right: 0.2rem;
 }
 footer{
 	position: fixed;
 	bottom: 0.3rem;
-	left: 0.06rem;
+	left: 0.16rem;
 	height: 0.25rem;
-	width: 96%;
+	width: 90%;
 	font-size: 0.15rem;
 	text-align: center;
 	background: #ccc;
 	color: #fff; 
-	font-family: "PingFang-SC-Regular";	
+	font-family:"微软雅黑";	
 	background: url("../img/anniu@2x.png"); 
 	background-size: 100%;
 	border-radius: 2px;

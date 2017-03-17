@@ -27,21 +27,24 @@
 			</div>
 		</div>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
 		<script>
 			var MedicalListItemSum = "";
-			// var HealthListItemSum = "";
 			function setMedicalListItem(data) {
 				for(var i = 0; i < data.length; i++) {
 					var str = '<div class="wrap-content">' +
 						'<div class="choose">' +
 						'</div><div class="MedicalListItemCC" style="width: 100%;position: relative;" id="' + data[i].id + '" name=' + data[i].medical_set_name + '>' +
-						'<div class="content-ins">' +
-						'<img src="img/wode_icon3@2x.png">' +
-						'<span>' + data[i].medical_set_name + '</span>' +
+						'<div class="content-ins">' ;
+						if((data[i].hreport_date >0) && (data[i].mreport_date ==0)){
+							str += '<img src="img/wode_icon3@2x.png">' ;
+						}else if((data[i].mreport_date > 0) || ((data[i].hreport_date >0) && (data[i].sanswer_date >0))){
+							str += '<img src="img/icon2@2x.png">' ;
+						}
+						
+					str += '<span>' + data[i].medical_set_name + '</span>' +
 						'<p>' + data[i].mcenter_name + '</p>' +
-						'<i>' + data[i].mreport_date + '</i>' +
+						'<i>' + getLocalTime(data[i].timecreated) + '</i>' +
 						'</div>' +
 						'</div>' +
 						'</div>';
@@ -66,8 +69,8 @@
 			var consumerId = userInfo.tid;
 			
 			function findMedicalList() {
-//				var questionReportListUrl = urlBaseW + 'md=apisearch&object=health_report&consumerid='+consumerId;
-				var questionReportListUrl = urlBaseW + 'md=apisearch&object=health_report&consumerid=623';
+				var questionReportListUrl = urlBaseW + 'md=apisearch&object=health_report&consumerid='+consumerId;
+//				var questionReportListUrl = urlBaseW + 'md=apisearch&object=health_report&consumerid=623';
 				var obj = {
 					pagesize: 10,
 					pagenum: 1
@@ -81,9 +84,19 @@
 					success: function(data) {
 						console.log(data);
 						if(data.status == "ok") {
-							setMedicalListItem(data.data.rows);
+							var rows = data.data.rows;
+							var dataList = [];
+							for(var i=0;i<rows.length;i++){
+								if((rows[i].sanswer_date >0) && (rows[i].mreport_date == 0)){
+									console.log('11');
+								}else{
+									dataList.push(rows[i]);
+								}
+							}
+							console.log(dataList);
+							setMedicalListItem(dataList);
 						}else{
-							localStorage.setItem("HealthListName","");
+							$('.MedicalListItemSum').css({"background":"url(img/dangan@2x.png) no-repeat","height":'4rem',"background-position":'center'})
 						}
 					},
 					error: function() {

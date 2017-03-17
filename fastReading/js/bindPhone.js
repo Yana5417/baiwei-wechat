@@ -132,9 +132,9 @@ $(function() {
 
 				if(response.message == "成功!") {
 					localStorage.setItem("_token",response.map.token);
-					window.location.href = "home.html";
+					window.location.href = "home.html?noRefresh=yes";
 				} else if(response.message == "该微信用户已绑定手机号,不可重复绑定"){
-					window.location.href = "home.html";
+					window.location.href = "home.html?noRefresh=yes";
 				}else {
 					layer.msg(response.message);
 				}

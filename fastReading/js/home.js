@@ -1,9 +1,11 @@
 //问诊人
 function getPatient() {
-	var peopleYear = localStorage.getItem("quickPeopleYear");
-	var peopleMonth = localStorage.getItem("quickPeopleMonth");
+	var peopleYear = localStorage.getItem("YMyear");
 	var PeopleSex = localStorage.getItem("quickPeopleSex");
 	var peopleName = localStorage.getItem("peopleName");
+	console.log(peopleYear);
+	console.log(PeopleSex);
+	console.log(peopleName);
 	var _date = new Date;
 	var _year = _date.getFullYear();
 	if(peopleYear && PeopleSex && peopleName) {
@@ -26,6 +28,7 @@ function getErecord() {
 	if(HealthListName) {
 		//	input1.setAttribute('disabled', 'disabled');
 		$('.uploadImg').removeAttr('id');
+		layer.msg("您已经上传了电子档案只需要上传一个");
 	} else {
 		//	input1.removeAttribute('disabled');
 		$('.uploadImg').attr('id', 'upload');

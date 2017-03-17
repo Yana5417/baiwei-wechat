@@ -15,35 +15,6 @@ function addPatient() {
 		sex = 2;
 	}
 	localStorage.setItem("describe",$("#mark").val());
-	/**
-	 *解决安卓手机不能成功拿到token 开始
-	 */
-	/*alert(JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token"));
-	if(JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token") == null){
-		window.location.href = "login.html";
-	}else{
-		//根据token查询orderId,orderRootId
-		$.ajax({
-			type: "post",
-			url: urlBaseQ + "health/v2_0/Inquiry/findOrderStatus",
-			data: {
-				token: JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token")
-			},
-			dataType: 'json',
-			async: false,
-			success: function(response) {
-				console.log("订单id，orderRootid：",response);
-				localStorage.setItem("orderInfo", JSON.stringify(response.object));
-			},
-			error: function() {
-				layer.msg('请求失败');
-			}
-		});
-	}*/
-	/**
-	 *解决安卓手机不能成功拿到token 结束
-	 */
-	
 
 	//根据token查询orderId,orderRootId
 	$.ajax({
@@ -59,10 +30,10 @@ function addPatient() {
 			localStorage.setItem("orderInfo", JSON.stringify(response.object));
 		},
 		error: function() {
-			layer.msg('请求失败');
+			layer.msg("您还未登录，请登录");
+			window.location.href = "login.html";
 		}
 	});
-//	alert(JSON.parse(localStorage.getItem("weLoginInfo")).token || localStorage.getItem("token"));
 
 	var orderInfo = JSON.parse(localStorage.getItem("orderInfo"));
 	console.log(orderInfo);

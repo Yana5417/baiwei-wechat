@@ -4,15 +4,17 @@ $(function(){
 	var phoneVal;
 	$('#nextstep').attr('disabled','disabled');
 	$("#phoneMsg").hide();
-
-//判断手机号是否注册过
-	$("#nextstep").on('click',function(){
-	  phoneVal = $('#phone').val();
+     phoneVal = $('#phone').val();
 		console.log(phoneVal);
+	$("#phone").on('blur', function() {
 		if(regPhone.test(phoneVal) == false) {
 			$("#phoneMsg").show();
 		}else {
 			$("#phoneMsg").hide();
+		}
+		});
+//判断手机号是否注册过
+	$("#nextstep").on('click',function(){	 
 			$.ajax({
 				type:"post",
 				url:urlBaseQ + "health/v2_0/consumer/forgetCheckPhone",
@@ -34,7 +36,7 @@ $(function(){
 					alert('error');
 				}
 			});
-		}
+		
 	});
 	//确定按钮是否可用
 	$("input").change(function(){

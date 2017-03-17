@@ -1,16 +1,4 @@
-/*登陆注册修改密码css*/
 
-.btn-confirm {
-	background-color: #5da1ec;
-	border-radius: 4px;
-	color: white;
-	text-align: center;
-	height: 0.3rem;
-    margin-top: 0.7rem;
-}
-.confirms {
-	margin-top: 0.7rem;
-}
 .landFatherContainer {
 	background-color: white;
 	top: 0;
@@ -53,6 +41,15 @@
 .form-group {
 	position: relative;
 }
+.pass-eyes{
+	position: absolute;
+    display: inline-block;
+    background: url(../img/yan@2x.png) no-repeat;
+    width: 0.32rem;
+    height: 0.18rem;
+    right: 0.2rem;
+    top: 0.08rem;
+}
 #phoneMsg,
 #passwordMsg {
 	color: #8495b9;
@@ -60,43 +57,11 @@
 	display: block;
 	padding-left: 0.1rem;
 }
-nav.nav {
-	padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-    width: 100%;
-    height: 0.3rem;
-    margin-bottom: 0.2rem;
-    background: #fff;
-    text-align: center;
-    position: relative;
-}
-nav.nav i {
-	width: 0.25rem;
-	height: 0.25rem;
-	display: inline-block;
-	background: url(../../common/img/fanhui@2x.png) no-repeat center center;
-	background-size: 0.14rem 0.18rem;
-    position: absolute;
-    left: 0.15rem;
-    top: 0.02rem;
-}
-nav.nav h4,
-nav.nav h5 {
-	display: inline-block;
-	position: absolute;
-	top: 0.08rem;
-}
-nav.nav h4 {
-	left: 1.45rem;
-}
-nav.nav h5 {
-	right: 0.2rem;
-}
 .phoneNum {
     width: 100%;
     height: 0.3rem;
     text-align: center;
+    font-size: 0.12rem;
 }
 .phoneNum a {
 	color: #333;
@@ -145,14 +110,14 @@ nav.nav h5 {
 	background-color: #ccc;
 	margin: auto;
 }
-#password{
+#code{
 	width: 58%;
 	margin: 0.2rem auto 0 auto;
 	border:none;
 	display: inline-block;
 	box-shadow:none;
 }
-#login{
+#log{
 	width: 2.79rem;
 	height: 0.49rem;
 	margin: 0.1rem auto;
@@ -160,23 +125,12 @@ nav.nav h5 {
 	background: url(../img/login_btn@2x.png) no-repeat;
 	background-size: cover;
 }
-.twoChoic{
-	width: 90%;
-	margin: auto;
-}
-.twoChoic #forgetPassword{
-	float: right;
-}
-.twoChoic #quickLogin{
-	float: left;
-}
-.pass-eyes{
-	position: absolute;
-    display: inline-block;
-    background: url(../img/icon3@2x.png) no-repeat;
-    background-size: cover;
-    width: 0.2rem;
-    height: 0.16rem;
-    right: 0.2rem;
-    top: 0.27rem;
+#getCode{
+	display: inline-block;
+	background-color:#8495b9 ;
+	color:#fff;
+	border:none;
+	padding: 0.05rem;
+	border-radius: 5px;
+	margin-bottom: 0.03rem;
 }

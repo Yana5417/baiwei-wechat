@@ -34,6 +34,7 @@ $(function(){
 					
 					if(response.message == "该手机号已注册"){
 						layer.msg("该手机号已注册，请直接登录！");
+						window.location.href = "login.html";
 					}else if(response.message == "距离上次获取验证码时间未过1分钟，请1分钟后再试"){
 						layer.msg("距离上次获取验证码时间未过1分钟，请1分钟后再试");
 					}else{
@@ -81,8 +82,13 @@ $(function(){
 			},
 			dataType:'json',
 			success:function(response){
-				console.log(response);
-				window.location.href = "home.html?noRefresh=yes";
+				if(response.message == "成功!") {
+					localStorage.setItem("userInfo",JSON.stringify(response.map.object));
+					localStorage.setItem("token",response.map.token);
+					window.location.href = "home.html?noRefresh=yes";
+				}else{
+					layer.msg(response.message);
+				}
 			},
 			error:function(response){
 				

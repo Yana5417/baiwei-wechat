@@ -10,7 +10,7 @@ $(function() {
 			val = $("#phone").val();
 		if(reg.test(val) == false) {
 			$("#phoneMsg").show();
-			$("#phoneMsg").html("手机号输入错误，请重新输入！");
+			$("#phoneMsg").html("手机号码格式错误，请重新输入！");
 		} else {
 			$("#phoneMsg").hide();
 		}
@@ -19,8 +19,12 @@ $(function() {
 	$(".pass-eyes").on('click', function() {
 		if($("#password").attr('type') == 'password') {
 			$("#password").attr('type', 'text');
-		} else {
+			$(".pass-eyes").css('background', 'url(img/icon4@2x.png) no-repeat');
+			$(".pass-eyes").css('background-size', 'cover');
+		}else if($("#password").attr('type') == 'text'){
 			$("#password").attr('type', 'password');
+			$(".pass-eyes").css('background', 'url(img/icon3@2x.png) no-repeat');
+			$(".pass-eyes").css('background-size', 'cover');
 		}
 		console.log($("#password").attr('type'));
 	});

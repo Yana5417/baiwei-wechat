@@ -1,4 +1,3 @@
-/*登陆注册修改密码css*/
 
 .btn-confirm {
 	background-color: #5da1ec;
@@ -8,9 +7,7 @@
 	height: 0.3rem;
     margin-top: 0.7rem;
 }
-.confirms {
-	margin-top: 0.7rem;
-}
+
 .landFatherContainer {
 	background-color: white;
 	top: 0;
@@ -52,6 +49,15 @@
 }
 .form-group {
 	position: relative;
+}
+.pass-eyes{
+	position: absolute;
+    display: inline-block;
+    background: url(../img/yan@2x.png) no-repeat;
+    width: 0.32rem;
+    height: 0.18rem;
+    right: 0.2rem;
+    top: 0.08rem;
 }
 #phoneMsg,
 #passwordMsg {
@@ -101,20 +107,6 @@ nav.nav h5 {
 .phoneNum a {
 	color: #333;
 }
-.otherLogin{
-    margin-top: 2rem;
-    text-align: center;
-}
-.otherLogin .line {
-    width: 0.8rem;
-    border-bottom: 1px solid #ccc;
-    display: inline-block;
-    margin: 0.08rem;
-    vertical-align: middle;
-}
-.otherLogin .text{
-	color:#737373;
-}
 .code {
     position: absolute;
     top: 0.03rem;
@@ -126,42 +118,23 @@ nav.nav h5 {
 	margin-top: 0.8rem;
 }
 #phone{
-	width: 80%;
-	margin: 0.2rem auto 0 auto;
-	border:none;
-	display: inline-block;
-	box-shadow:none;
-	margin-bottom: 0.03rem;
-}
-.icon{
-	width: 0.22rem;
-	height: 0.22rem;
-	display: inline-block;
-	margin-left: 5%;
-}
-.line{
-	width: 90%;
-	height: 1px;
-	background-color: #ccc;
-	margin: auto;
+	width: 95%;
+	margin: 0.1rem auto;
 }
 #password{
-	width: 58%;
-	margin: 0.2rem auto 0 auto;
-	border:none;
-	display: inline-block;
-	box-shadow:none;
+	width: 95%;
+	margin: 0.1rem auto;
 }
 #login{
-	width: 2.79rem;
-	height: 0.49rem;
+	width: 95%;
 	margin: 0.1rem auto;
 	margin-top: 0.8rem;
-	background: url(../img/login_btn@2x.png) no-repeat;
-	background-size: cover;
+	background-color: #5da0ec;
+	box-shadow: 0 2px 3px 2px #ccc;
 }
 .twoChoic{
-	width: 90%;
+	width: 95%;
+	height: auto;
 	margin: auto;
 }
 .twoChoic #forgetPassword{
@@ -170,13 +143,25 @@ nav.nav h5 {
 .twoChoic #quickLogin{
 	float: left;
 }
-.pass-eyes{
-	position: absolute;
-    display: inline-block;
-    background: url(../img/icon3@2x.png) no-repeat;
-    background-size: cover;
-    width: 0.2rem;
-    height: 0.16rem;
-    right: 0.2rem;
-    top: 0.27rem;
+.input-group{
+	width: 95%;
+	margin: auto;
+}
+#checkbox{
+	width: 95%;
+	padding-left: 0.1rem;
+}
+#checkbox a{
+	color:#5da0ec;
+}
+#getCode{
+	background-color:#5da0ec ;
+	color:#fff;
+}
+#register{
+	width: 95%;
+	margin: 0.1rem auto;
+	margin-top: 0.8rem;
+	background-color: #5da0ec;
+	box-shadow: 0 2px 3px 2px #ccc;
 }
